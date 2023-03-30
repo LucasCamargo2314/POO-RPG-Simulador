@@ -37,7 +37,7 @@ export class Guerreiro extends Personagem {
     this._poderDeAtaque = this._forca * 10;
   }
   public regenerarVida(): void {
-    this._vidaAtual += this._vidaAtual * 1.05;
+    this._vidaAtual += this._vidaAtual * 1.1;
     if (this._vidaAtual > this._vidaMaxima) {
       this.vidaAtual = this._vidaMaxima;
     }
