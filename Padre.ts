@@ -22,7 +22,7 @@ export class Priest extends Personagem {
     throw new Error("Este personagem não pode executar esta ação");
   }
   public regenerarVida(): void {
-    this._vidaAtual += this._vidaAtual * 1.5;
+    this._vidaAtual += this._vidaMaxima * 0.1;
     if (this._vidaAtual > this._vidaMaxima) {
       this.vidaAtual = this._vidaMaxima;
     }
