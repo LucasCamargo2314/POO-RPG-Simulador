@@ -1,8 +1,8 @@
 import prompt from "prompt-sync";
-import { Guerreiro } from "./Guerreiro";
-import { Priest } from "./Padre";
-import { Personagem } from "./Personagem";
-import { Util } from "./Util";
+import { Guerreiro } from "./entities/Guerreiro";
+import { Priest } from "./entities/Padre";
+import { Personagem } from "./entities/Personagem";
+import { Util } from "./helpers/Util";
 
 const teclado = prompt();
 
@@ -39,7 +39,4 @@ while (true) {
     console.log((e as any).message);
   }
 }
-
-const personagem: Personagem = new Guerreiro("Uhtred");
-personagem.salvar(personagem);
-// (personagem as PersonagemDAO).
+console.log(`\nO vencedor foi \x1b[31m ${personagens[0].nome}\x1b[0m`);

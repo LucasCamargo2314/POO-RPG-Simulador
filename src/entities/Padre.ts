@@ -1,5 +1,5 @@
 import { Personagem } from "./Personagem";
-import { Util } from "./Util";
+import { Util } from "../helpers/Util";
 
 export class Priest extends Personagem {
   constructor(nome: string) {

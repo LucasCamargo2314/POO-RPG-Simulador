@@ -1,5 +1,5 @@
-import { DAO } from "./DAO";
-import {} from "./PersonagemDAO";
+import { DAO } from "../DAO/DAO";
+import {} from "../DAO/PersonagemDAO";
 
 export abstract class Personagem implements DAO {
   constructor(
