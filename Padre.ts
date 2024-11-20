@@ -31,6 +31,7 @@ export class Priest extends Personagem {
   private ataque(oponente: Personagem) {
     const acertou: boolean = Util.randomizar(0, 100) < 40;
     if (acertou) {
+      oponente.vidaAtual = 0;
       throw new Error(`${oponente.nome} foi convertido`);
     }
   }
