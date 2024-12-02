@@ -19,9 +19,9 @@ Passo 04: Aplicação prática do padrão Factory Method para simplificar a cria
 Este projeto demonstra o uso do padrão Factory Method para simplificar a criação de objetos no projeto POO-RPG-Simulador. Ao utilizar uma fábrica para criar instâncias de diferentes tipos de personagens, o padrão promove flexibilidade, mantendo o código limpo e desacoplado. O Factory Method permite que a criação de objetos seja delegada a classes especializadas, sem que o código cliente precise conhecer os detalhes de como essas instâncias são criadas.
 
 Implementação do Padrão Factory Method:
-O padrão Factory Method foi implementado na classe CarroFactory (arquivo src/Factories/CarroFactory.ts), que centraliza a criação de objetos do tipo Carro. Dependendo do tipo de carro solicitado, a fábrica cria uma instância de CarroEsportivo ou CarroSedan.
-A classe Carro é uma classe abstrata que define um contrato para suas subclasses, como CarroEsportivo e CarroSedan, e cada uma delas implementa o método mostrarVelocidade de maneira específica.
-A fábrica CarroFactory oferece uma interface única para criar carros, sem expor a lógica de instância dos mesmos para o código cliente.
+O padrão Factory Method foi implementado na classe PersonagemFactory (arquivo src/Personagem_ComFactory.ts), que centraliza a criação de objetos do tipo Personagem. Dependendo do tipo de Personagem solicitado, a fábrica cria uma instância de Guerreiro ou Mago.
+A classe Personagem é uma classe abstrata que define um contrato para suas subclasses, como PersonagemGuerreiro e PersonagemMago, e cada uma delas implementa o método criarPersonagem de maneira específica.
+A fábrica PersonagemFactory oferece uma interface única para criar Personagens, sem expor a lógica de instância dos mesmos para o código cliente.
 
 Padrão Prototype
 Passos a serem seguidos:
