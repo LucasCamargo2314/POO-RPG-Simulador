@@ -1,61 +1,41 @@
-import { Personagem } from "./Personagem";
-import { Util } from "../helpers/Util";
-
-export class Guerreiro extends Personagem {
-  constructor(nome: string) {
-    super(
-      nome + " Warrior",
-      Util.randomizar(1, 1000),
-      0,
-      0,
-      Util.randomizar(0, 50),
-      Util.randomizar(0, 90),
-      0,
-      Util.randomizar(1, 40_000)
-    );
-    this._poderDeAtaque = this._forca * 10;
-    this._vidaAtual = this._vidaMaxima;
-  }
-
-  public atacar(oponente: Personagem): void {
-    console.log(`${this._nome} atacou ${oponente.nome}`);
-    this.ataque(oponente);
-    oponente.contraAtacar(this);
-  }
-
-  public contraAtacar(oponente: Personagem): void {
-    console.log(`${this._nome} contra-atacou ${oponente.nome}`);
-
-    this.ataque(oponente);
-  }
-
-  public aprimorarHabilidadePrincipal(): void {
-    this._forca *= this._forca * 1.1;
-    this.atualizarPoderDeAtaque();
-  }
-  private atualizarPoderDeAtaque(): void {
-    this._poderDeAtaque = this._forca * 10;
-  }
-  public regenerarVida(): void {
-    this._vidaAtual += this._vidaMaxima * 0.1;
-    if (this._vidaAtual > this._vidaMaxima) {
-      this.vidaAtual = this._vidaMaxima;
-    }
-  }
-
-  private ataque(oponente: Personagem): void {
-    const acertou: boolean = Util.randomizar(0, 100) > oponente.esquiva;
-    if (acertou) {
-      const danoCausado: number =
-        (1 - oponente.resistencia / 100) * this._poderDeAtaque;
-      oponente.vidaAtual = oponente.vidaAtual - danoCausado;
-
-      const oponenteMorreu: boolean = oponente.vidaAtual <= 0;
-      if (oponenteMorreu) {
-        throw new Error(`${oponente.nome} foi derrotado.`);
-      }
-    } else {
-      console.log(`${oponente.nome} esquivou o ataque de ${this._nome}`);
-    }
-  }
+import { Personagem } from "./Personagem_ComFactory";
+// Interface Clonar
+interface Clonar {
+    clone(): this;
 }
+
+// Classe Personagem implementando a interface Clonar
+class Guerreiro implements Clonar {
+    constructor(
+        protected _nome: string,
+        protected _forca: number,
+        protected _habilidadeMental: number,
+        protected _poderDeAtaque: number,
+        protected _esquiva: number,
+        protected _resistencia: number,
+        protected _vidaAtual: number,
+        protected _vidaMaxima: number
+    ) {}
+
+    
+
+// Método de clonagem
+    clone(): this {
+        return Object.assign(Object.create(Object.getPrototypeOf(this)), this);
+    }
+}
+
+// Classe Guerreiro estendendo Personagem
+// class Guerreiro extends Personagem {
+//     // Implementações específicas do Guerreiro
+// }
+
+// Criação de um protótipo de Guerreiro
+const guerreiroPrototype = new Guerreiro("Ygor", 100, 50, 75, 30, 80, 100, 100);
+
+// Clonando o protótipo para criar novos guerreiros
+const guerreiro1 = guerreiroPrototype.clone();
+guerreiro1._nome = "Ygor";
+
+const guerreiro2 = guerreiroPrototype.clone();
+guerreiro2._nome= "Lucas";
