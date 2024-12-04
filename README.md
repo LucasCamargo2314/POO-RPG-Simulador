@@ -38,6 +38,9 @@ Implementação do Padrão Prototype
 O método clone() foi implementado na classe Personagem (arquivo src/Personagens.ts).
 A interface Clonar define a assinatura do método clone(), garantindo consistência em todos os objetos clonáveis.
 Subclasses como Guerreiro reutilizam a funcionalidade de clonagem da classe base, permitindo personalizações específicas.
+
+Link do video de apresentação - https://drive.google.com/file/d/1qnDRAGBzzOk4Jl7rhcgzy2vtW0PQlawf/view?usp=sharing
+
 🤝 Contribuidores
 <a href="https://https://github.com/Ygor0508"><img src="https://github.com/Ygor0508.png" width="45" height="45"></a> &nbsp;
 <a href="https://https://github.com/LucasCamargo2314"><img src="https://github.com/LucasCamargo2314.png" width="45" height="45"></a> &nbsp;
